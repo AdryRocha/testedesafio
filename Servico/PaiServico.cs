@@ -11,6 +11,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Servico
 {
     public class PaiServico
     {
+        //Criar paginação
         public static async Task<List<Pai>> Todos(int pagina = 1)
         {
             using (var http = new HttpClient())
@@ -25,7 +26,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Servico
             }
         }
 
-        public static async Task<Pai> BuscaPorId(int id)
+        public static async Task<Pai> BuscaPorId(string id)
         {
             using (var http = new HttpClient())
             {
@@ -41,7 +42,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Servico
         {
             using (var http = new HttpClient())
             {
-                if(Convert.ToInt32(pai.Id) == 0)
+                if(string.IsNullOrEmpty(pai.Id))
                 {
                     using (var response = await http.PostAsJsonAsync($"{Program.PaisAPI}/pais", pai))
                     {
@@ -67,7 +68,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Servico
             }
         }
 
-        public static async Task ExcluirPorId(int id)
+        public static async Task ExcluirPorId(string id)
         {
             using (var http = new HttpClient())
             {

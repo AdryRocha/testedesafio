@@ -16,7 +16,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Controllers
         }
 
         // GET: Alunos/Details/5
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(string id)
         {
             var pai = await PaiServico.BuscaPorId(id);
             if (pai == null)
@@ -46,7 +46,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Controllers
         }
 
         // GET: Alunos/Edit/5
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string id)
         {
             var pai = await PaiServico.BuscaPorId(id);
             if (pai == null)
@@ -74,9 +74,9 @@ namespace mvc_desafio21dias_api_gestao_razor.Controllers
         }
 
         // GET: Alunos/Delete/5
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
-            var pai = await PaiServico.BuscaPorId(id);
+             var pai = await PaiServico.BuscaPorId(id);
             if (pai == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Controllers
         // POST: Alunos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             await PaiServico.ExcluirPorId(id);
             return RedirectToAction(nameof(Index));

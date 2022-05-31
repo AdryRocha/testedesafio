@@ -44,7 +44,7 @@ namespace mvc_desafio21dias_api_gestao_razor.Controllers
             if (ModelState.IsValid)
             {
                 var mat = await _servico.Salvar(material);
-                return Redirect($"/Materiais/Details/{mat.Id}");
+                return Redirect($"/materiais/Details/{mat.Id}");
             }
             return View(material);
         }
