@@ -20,6 +20,9 @@ namespace web_renderizacao_server_side.Helpers
       {
          string usuarioLogado = filterContext.HttpContext.Request.Cookies["adm_desafio_21dias_csharp_api_nome"];
          ((Controller)filterContext.Controller).TempData["usuarioLogado"] = usuarioLogado;
+
+         string usuarioLogadoId = filterContext.HttpContext.Request.Cookies["adm_desafio_21dias_csharp_api"];
+         ((Controller)filterContext.Controller).TempData["usuarioLogadoId"] = usuarioLogadoId;
       }
 
       base.OnActionExecuting(filterContext);
